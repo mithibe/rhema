@@ -1,0 +1,59 @@
+.donations-section {
+    padding: 40px;
+    background-color: #4b0c59;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+    margin: 40px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .donations-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Bebas Neue', Arial, sans-serif; 
+  }
+  
+  .donations-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .donate-button {
+    background-color: #ffa500; 
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .donate-button:hover {
+    background-color: #ff8800;
+  }
+  
+  @media (max-width: 768px) {
+    .donations-section {
+      padding: 20px;
+    }
+  
+    .donations-section h2 {
+      font-size: 2em;
+    }
+  
+    .donations-section p {
+      font-size: 1em;
+    }
+  
+    .donate-button {
+      font-size: 1em;
+      padding: 10px 20px;
+    }
+  }
+  

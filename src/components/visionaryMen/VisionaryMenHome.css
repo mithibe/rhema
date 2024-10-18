@@ -1,0 +1,30 @@
+.visionary-men-home {
+    padding: 60px 40px; /* Added more padding to create space */
+    margin-top: 50px; /* Adds margin on top to separate from the hero section */
+    background-color: #ffffff; 
+    text-align: center;
+    z-index: 1
+}
+
+.visionary-men-home h2 {
+    font-size: 2.2em;
+    color: #012169; 
+    margin-bottom: 20px;
+}
+
+.visionary-men-home p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .visionary-men-home h2 {
+        font-size: 1.8em;
+    }
+
+    .visionary-men-home p {
+        font-size: 1em;
+    }
+}

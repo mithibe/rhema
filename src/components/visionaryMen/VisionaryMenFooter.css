@@ -1,0 +1,27 @@
+.visionary-men-footer {
+    background-color: #699DF2;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.visionary-men-footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+.visionary-men-footer a {
+    color: #0ff122;
+    text-decoration: none;
+}
+
+.visionary-men-footer a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .visionary-men-footer p {
+        font-size: 0.9em;
+    }
+}

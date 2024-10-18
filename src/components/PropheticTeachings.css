@@ -1,0 +1,86 @@
+.prophetic-teachings-section {
+    padding: 40px;
+    background-image: url('../assets/images/prophetic_teaching_design_4k.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+    margin: 40px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prophetic-teachings-content {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    border-radius: 15px;
+    color: white;
+}
+
+.prophetic-teachings-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Bebas Neue', Arial, sans-serif; 
+}
+
+.prophetic-teachings-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.auth-buttons .register-button {
+    background-color: #ffa500; 
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons .register-button:hover {
+    background-color: #ff8800; /* Darker orange on hover */
+}
+
+@media (max-width: 768px) {
+    .prophetic-teachings-section {
+        padding: 20px;
+    }
+
+    .prophetic-teachings-content {
+        padding: 20px;
+    }
+
+    .prophetic-teachings-section h2 {
+        font-size: 2em;
+    }
+
+    .prophetic-teachings-section p {
+        font-size: 1em;
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .auth-buttons .register-button
+     {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}

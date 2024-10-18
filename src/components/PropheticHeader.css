@@ -1,0 +1,52 @@
+.header {
+  background-color: #4b0c59;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.search-form {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  background-color: rgb(255, 255, 255);
+  outline: none;
+}
+
+.search-button {
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Adjust your main content to account for the header */
+.main-content {
+  padding-top: 70px; /* Adjust this value based on your header's height */
+}

@@ -1,0 +1,158 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Slightly darker background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px; /* Increased padding */
+  border-radius: 10px; /* More rounded corners */
+  width: 400px; /* Fixed width */
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Added a soft shadow */
+  overflow: hidden; /* Ensure no overflow */
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2rem; /* Made the close button smaller */
+  cursor: pointer;
+  color: #4C0070; /* Purple from your theme */
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f1f1f1; /* Border for tab section */
+  position: relative;
+}
+
+.tabs button {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  flex-grow: 1;
+  color: #4C0070; /* Your purple color */
+  font-size: 1.1rem; /* Slightly bigger font */
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tabs button.active {
+  color: #4C0070; /* Purple when active */
+  font-weight: bold;
+}
+
+.tabs button.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #4C0070; /* Purple underline */
+  transition: all 0.3s ease;
+}
+
+input {
+  width: calc(100% - 40px); /* Account for padding for the eye icon */
+  padding: 12px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Ensure padding and width fit within boundaries */
+}
+
+input:focus {
+  border-color: #4C0070; /* Purple border on focus */
+}
+
+.password-input-container {
+  position: relative;
+  width: 100%; /* Ensure container takes up full width */
+}
+
+.password-input-container input {
+  padding-right: 40px; /* Space for the eye icon */
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem; /* Adjust size for the eye icon */
+  color: #4C0070; /* Match the theme color */
+}
+
+button {
+  background-color: #4C0070; /* Purple background */
+  color: white; /* White text */
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #cccccc; /* Grey background when disabled */
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  text-align: left; /* Align error message to the left */
+}
+
+.spinner-container2 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spinner2 {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #000000;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.activeTab {
+  color: #4C0070;
+}

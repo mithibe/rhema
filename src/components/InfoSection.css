@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.info-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    background-image: url('../assets/images/7672043.jpg'); /* Apply background image */
+    background-size: cover; /* Ensure the background covers the entire section */
+    background-position: center; /* Center the background image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    max-width: 1200px;
+    margin: 40px auto;
+    flex-wrap: wrap;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+
+.info-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.info-image img {
+    max-width: 250%;
+    border-radius: 15px;
+}
+
+.info-text {
+    flex: 2;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    color: black;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.8); /* Add semi-transparent background to text */
+    padding: 20px; /* Add padding for readability */
+    border-radius: 10px; /* Apply border-radius for smooth corners */
+}
+
+.info-text h2 {
+    color: #4b0c59;
+    font-size: 2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.info-text h3 {
+    color: #ffa500;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    clear: both;
+}
+
+.info-text p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: black;
+    clear: both;
+}
+
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .info-image {
+        margin: 0 0 20px 0;
+    }
+
+    .info-image img {
+        max-width: 100%;
+    }
+
+    .info-text {
+        text-align: center;
+    }
+
+    .info-text h2, .info-text h3 {
+        text-align: center;
+    }
+}

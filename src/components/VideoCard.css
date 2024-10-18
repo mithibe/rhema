@@ -1,0 +1,38 @@
+.video-card {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 300px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: left;
+}
+
+.video-card:focus {
+  outline: none;
+  border-color: blue;
+}
+
+.video-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.video-content {
+  padding-top: 10px;
+}
+
+.video-title {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+.video-description {
+  font-size: 14px;
+  color: #555;
+}

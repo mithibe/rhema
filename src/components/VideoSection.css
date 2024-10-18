@@ -1,0 +1,102 @@
+/* src/components/VideoSection.css */
+.video-section {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the items vertically */
+    padding: 40px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    max-width: 1200px;
+    margin: 40px auto;
+    flex-wrap: wrap;
+    background-image: url('../assets/images/A_church-oriented_website_background_with_a_purple.jpg'); /* Add background image */
+    background-size: cover; /* Cover the entire section */
+    background-position: center center; /* Center the image vertically and horizontally */
+  }
+  
+  .video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the iframe vertically */
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .video-container iframe {
+    width: 100%;
+    border-radius: 15px;
+  }
+  
+  .video-text {
+    flex: 2;
+    font-family: Arial, sans-serif;
+    background-color: rgba(75, 12, 89, 0.8); /* Semi-transparent background for text */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .video-text h2 {
+    color: #ffa500;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .video-text p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  .video-text button {
+    background-color: white;
+    color: #4b0c59;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+  }
+  
+  .video-text button:hover {
+    background-color: #ffa500;
+    color: white;
+  }
+  
+  .video-text button a {
+    text-decoration: none;
+    color: #4b0c59;
+  }
+  
+  .video-text button:hover a {
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .video-section {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .video-container {
+      margin: 0 0 20px 0;
+    }
+  
+    .video-container iframe {
+      width: 100%;
+    }
+  
+    .video-text {
+      text-align: center;
+    }
+  
+    .video-text h2, .video-text p {
+      text-align: center;
+    }
+  }
+  

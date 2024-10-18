@@ -1,0 +1,55 @@
+/* Style for the events section */
+.events-section {
+    padding: 60px 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+    position: relative;
+    background-image: url('./view-3d-religious-cross-blue-room.jpg');
+}
+
+.events-section h2 {
+    font-size: 2.5em;
+    color: white;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Style for the events list */
+.events-list {
+    display: flex;
+    flex-direction: row;  /* Align items in a row */
+    gap: 20px;            /* Space between event cards */
+    overflow-x: auto;     /* Enable horizontal scrolling */
+    padding: 20px 0;
+    scroll-behavior: smooth; /* Smooth scrolling */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.events-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+}
+
+/* Style for each event card container */
+.event-card-container {
+    flex: 0 0 auto;  /* Prevent shrinking and ensure cards stay side by side */
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+    .events-section {
+        padding: 40px 40px;
+    }
+
+    .events-section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .events-list {
+        gap: 15px; /* Reduce gap for smaller screens */
+    }
+}

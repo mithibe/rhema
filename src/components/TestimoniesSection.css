@@ -1,0 +1,24 @@
+.testimonies-section {
+    padding: 40px;
+    background-color: #f8f8f8;
+    text-align: center;
+  }
+  
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    gap: 20px;
+  }
+  
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .carousel {
+      gap: 15px;
+    }
+  }
+  

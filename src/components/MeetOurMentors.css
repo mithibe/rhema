@@ -1,0 +1,84 @@
+/* src/components/MeetOurMentors.css */
+.mentors-section {
+    padding: 40px;
+    text-align: center;
+    background-color: white;
+    margin: 40px auto;
+    max-width: 1200px;
+  }
+  
+  .mentors-section h2 {
+    color: #4b0c59;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  
+  .mentors-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .mentor-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    position: relative;
+    overflow: visible;
+  }
+  
+  .mentor-image img {
+    width: 200px; /* Adjust image size */
+    height: auto;
+    border-radius: 50%;
+    position: absolute;
+    top: -80px; /* Position image to be outside of card */
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid white; /* Optional: add border to the image */
+  }
+  
+  .mentor-text {
+    padding-top: 120px; /* Add padding to account for the image */
+  }
+  
+  .mentor-text h3 {
+    font-size: 1.5em;
+    color: #4b0c59;
+    margin-bottom: 10px;
+  }
+  
+  .mentor-text .quote {
+    font-size: 1em;
+    font-style: italic;
+    color: #333;
+    quotes: "“" "”" "‘" "’";
+  }
+  
+  .mentor-text .quote:before {
+    content: open-quote;
+  }
+  
+  .mentor-text .quote:after {
+    content: close-quote;
+  }
+  
+  @media (max-width: 768px) {
+    .mentors-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .mentor-card {
+      width: 100%;
+      max-width: 350px;
+    }
+  
+    .mentor-image img {
+      top: -60px; /* Adjust for smaller screens */
+    }
+  }
+  
