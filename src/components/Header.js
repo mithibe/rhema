@@ -20,6 +20,11 @@ const Header = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const handleLinkClick = () => {
+    setDrawerOpen(false); // Closes the drawer when a link is clicked
+    setDropdownOpen(false); // Also close the dropdown if it's open
+  };
+
   return (
     <header className="header">
       <div className="logo">
@@ -28,19 +33,18 @@ const Header = () => {
       </div>
       <nav className={`nav ${drawerOpen ? 'open' : ''}`}>
         <ul>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="#about" onClick={handleLinkClick}>About Us</a></li>
           <li className="dropdown">
             <a href="#ministries" onClick={toggleDropdown}>Ministries</a>
             <ul className={`dropdown-content ${dropdownOpen ? 'show' : 'hide'}`}>
               <li><Link to="/visionary-men">Visionary Men</Link></li>
               <li><Link to="/suitable-helpers">Suitable Helpers</Link></li> {/* navigation to suitable helpers*/}
-              
             </ul>
           </li>
-          <li><a href="#Prophetic-teachings">Prophetic Teachings</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#donations">Donations</a></li>
-          <li><a href="#contacts">Contacts</a></li>
+          <li><a href="#Prophetic-teachings" onClick={handleLinkClick}>Prophetic Teachings</a></li>
+          <li><a href="#events" onClick={handleLinkClick}>Events</a></li>
+          <li><a href="#donations" onClick={handleLinkClick}>Donations</a></li>
+          <li><a href="#contacts" onClick={handleLinkClick}>Contacts</a></li>
         </ul>
       </nav>
       <div className="menu-icon" onClick={toggleDrawer}>
