@@ -15,7 +15,7 @@ const PromotionalBanner = () => {
         </div>
         <div className="image-container">
           <div className="image-wrapper">
-            <img src="../assets/images/WhatsApp_Image_2024-07-04_at_10.25.14_2a5d1000-removebg-preview.png" alt="Proph Saidimu" className="profile-image" />
+            <img src="../assets/images/prophet.png" alt="Proph Saidimu" className="profile-image" />
           </div>
         </div>
       </div>

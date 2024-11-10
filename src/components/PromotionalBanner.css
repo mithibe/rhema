@@ -2,19 +2,29 @@
 
 .promotional-banner {
     position: relative;
-    height: 24rem;
+    top: 0;
+    height: 90vh;
     background-color: white;
     overflow: hidden;
+    width: 100vw;
+    margin: 0;
+    margin-bottom: 20px;
   }
   
   .skew-background {
     position: absolute;
+    left: 0;
     inset: 0;
-    background-color: #8b5cf6;
-    transform: skew(-45deg) translateX(25%);
-    width: 125%;
+    /* background-color: #8b5cf6; */
+    background: #4b0c59;
+    transform: skew(-45deg) translateX(50%);
+    width: 100%;
     transform-origin: top right;
-  }
+    -webkit-transform: skew(-45deg) translateX(50%);
+    -moz-transform: skew(-45deg) translateX(50%);
+    -ms-transform: skew(-45deg) translateX(50%);
+    -o-transform: skew(-45deg) translateX(50%);
+}
   
   .banner-content {
     position: relative;
@@ -30,14 +40,18 @@
   }
   
   .text-content h1 {
-    font-size: 2.25rem;
+    font-size: 56px;
     font-weight: bold;
     margin-bottom: 1rem;
     color: rgb(0, 0, 0);
+    /* background: linear-gradient(-45deg, white 25%, black 25%); */
+    /* background-clip: text; */
+    /* color: transparent; */
+    /* mix-blend-mode: difference; */
   }
   
   .text-content p {
-    font-size: 1.125rem;
+    font-size: 24px;
     margin-bottom: 1rem;
     color: rgb(0, 0, 0);
   }

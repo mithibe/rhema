@@ -16,47 +16,53 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  /* padding: 0 20px; */
 }
 
 .search-form {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100vw;
+  /* max-width: 600px; */
+  margin: 0;
 }
 
 .search-input {
+  /* flex-grow: 1; */
+  /* padding: 10px 15px; */
   font-size: 16px;
   border: none;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  /* border-radius: 20px 0 0 20px; */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   background-color: rgb(255, 255, 255);
   outline: none;
   width: 25vw;
   min-width: 150px;
   height: 50px;
-  padding: 0 15px; /* Add padding for better alignment */
-  box-sizing: border-box;
 }
 
 .search-button {
   background-color: #d48c07;
   border: none;
-  cursor: pointer;
-  height: 50px;
-  width: 50px; /* Keep the button square */
-  display: flex;
+  /*padding: 10px 20px;
+  */cursor: pointer;
+  /*border-radius: 0 20px 20px 0;
+  */display: flex;
   align-items: center;
   justify-content: center;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  margin-bottom: 10px;
+  height: 50px;
+  width: fit-content;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .search-button:hover {
   background-color: #ffa500;
 }
 
-/* Adjust main content to account for the fixed header */
+/* Adjust your main content to account for the header */
 .main-content {
-  padding-top: 10vh; /* Match this to the header's height */
+  /* padding-top: 70px; Adjust this value based on your header's height */
 }
