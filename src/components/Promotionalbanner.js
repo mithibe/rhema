@@ -1,3 +1,4 @@
+import prophetImage from "../assets/images/prophet.png";
 import React from 'react';
 import './PromotionalBanner.css';
 
@@ -15,7 +16,7 @@ const PromotionalBanner = () => {
         </div>
         <div className="image-container">
           <div className="image-wrapper">
-            <img src="../assets/images/prophet.png" alt="Proph Saidimu" className="profile-image" />
+            <img src={prophetImage} alt="Proph Saidimu" className="profile-image" />
           </div>
         </div>
       </div>
