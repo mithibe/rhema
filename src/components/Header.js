@@ -1,4 +1,3 @@
-// Header.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './Header.css';
@@ -11,7 +10,7 @@ const Header = () => {
 
   const toggleDrawer = () => {
     if (drawerOpen) {
-      setDropdownOpen(false); 
+      setDropdownOpen(false);
     }
     setDrawerOpen(!drawerOpen);
   };
@@ -33,17 +32,17 @@ const Header = () => {
       </div>
       <nav className={`nav ${drawerOpen ? 'open' : ''}`}>
         <ul>
-          <li><a href="#about" onClick={handleLinkClick}>About Us</a></li>
+          <li><Link to="/about-us" onClick={handleLinkClick}>About Us</Link></li>
           <li className="dropdown">
             <a href="#ministries" onClick={toggleDropdown}>Ministries</a>
             <ul className={`dropdown-content ${dropdownOpen ? 'show' : 'hide'}`}>
-              <li><Link to="/visionary-men">Visionary Men</Link></li>
-              <li><Link to="/suitable-helpers">Suitable Helpers</Link></li> {/* navigation to suitable helpers*/}
+              <li><Link to="/visionary-men" onClick={handleLinkClick}>Visionary Men</Link></li>
+              <li><Link to="/suitable-helpers" onClick={handleLinkClick}>Suitable Helpers</Link></li>
             </ul>
           </li>
-          <li><a href="#Prophetic-teachings" onClick={handleLinkClick}>Prophetic Teachings</a></li>
+          <li><Link to="/prophetic-teachings" onClick={handleLinkClick}>Prophetic Teachings</Link></li>
           <li><a href="#events" onClick={handleLinkClick}>Events</a></li>
-          <li><a href="#donations" onClick={handleLinkClick}>Donations</a></li>
+          <li><Link to="/donations" onClick={handleLinkClick}>Donations</Link></li>
           <li><a href="#contacts" onClick={handleLinkClick}>Contacts</a></li>
         </ul>
       </nav>

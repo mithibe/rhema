@@ -1,6 +1,6 @@
 import React from 'react';
 import './MentorsSection.css';
-import ProphetImage from '../assets/images/WhatsApp_Image_2024-07-04_at_10.25.14_2a5d1000-removebg-preview.png';
+import ProphetImage from '../assets/images/WhatsApp_Image_2024-07-04_at_10.25.14_2a5d1000-removebg-preview copy.png';
 import ApostleImage from '../assets/images/apostle.png';
 
 const MentorsSection = () => {

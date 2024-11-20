@@ -1,21 +1,21 @@
-// App.js
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Main from './components/Main';
 import VideoSection from './components/VideoSection';
-import Footer from './components/Footer';
 import TestimoniesSection from './components/TestimoniesSection';
-import Donations from './components/DonationsSection';
-import Teachings from './components/PropheticTeachings';
 import './App.css';
 
-// Lazy load components for code splitting
+// Lazy load components for better performance
+const Donations = lazy(() => import('./components/DonationsSection'));
+const Teachings = lazy(() => import('./components/PropheticTeachings'));
+const MentorsSection = lazy(() => import('./components/MeetOurMentors'));
 const VisionaryMen2 = lazy(() => import('./components/suitablehelpers/VisionaryMen2'));
 const VisionaryMen = lazy(() => import('./components/visionaryMen/VisionaryMen'));
-const VideoPlayer = lazy(() => import('./components/VideoPlayer.js'));
+const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
 
 // Create an authentication context
 export const AuthContext = React.createContext();
@@ -25,7 +25,7 @@ const ProtectedRoute = ({ children }) => {
   const { user, loading } = React.useContext(AuthContext);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loader">Loading...</div>; // Styled loader
   }
 
   if (!user) {
@@ -52,46 +52,62 @@ function App() {
     <AuthContext.Provider value={{ user, setUser, loading }}>
       <Router>
         <div className="App">
-          <Routes>
-            {/* Main page route */}
-            <Route exact path="/" element={
-              <>
-                <Header />
-                <Main />
-                <VideoSection />
-                <TestimoniesSection />
-                <Donations />
-                <Teachings />
-                <Footer />
-              </>
-            } />
+          <Header />
+          <Suspense fallback={<div className="loader">Loading...</div>}>
+            <Routes>
+              {/* Main page route */}
+              <Route
+                exact
+                path="/"
+                element={
+                  <>
+                    <Main />
+                    <VideoSection />
+                    <TestimoniesSection />
+                  </>
+                }
+              />
 
-            {/* Suitable Helpers Route (Lazy Loaded) */}
-            <Route path="/suitable-helpers" element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <VisionaryMen2 />
-              </Suspense>
-            } />
+              {/* About Us Route */}
+              <Route path="/about-us" element={<MentorsSection />} />
 
-            {/* Visionary men route */}
-            <Route path="/visionary-men" element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <VisionaryMen />
-              </Suspense>
-            } />
+              {/* Prophetic Teachings Route */}
+              <Route path="/prophetic-teachings" element={<Teachings />} />
 
-            {/* Video Player Route (Protected) */}
-            <Route path="/video-player" element={
-              <ProtectedRoute>
-                <Suspense fallback={<div>Loading...</div>}>
-                  <VideoPlayer />
-                </Suspense>
-              </ProtectedRoute>
-            } />
+              {/* Donations Route */}
+              <Route path="/donations" element={<Donations />} />
 
-            {/* 404 Route */}
-            <Route path="*" element={<div>404 Page Not Found</div>} />
-          </Routes>
+              {/* Suitable Helpers Route */}
+              <Route path="/suitable-helpers" element={<VisionaryMen2 />} />
+
+              {/* Visionary Men Route */}
+              <Route path="/visionary-men" element={<VisionaryMen />} />
+
+              {/* Video Player Route (Protected) */}
+              <Route
+                path="/video-player"
+                element={
+                  <ProtectedRoute>
+                    <VideoPlayer />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* 404 Route */}
+              <Route
+                path="*"
+                element={
+                  <div className="not-found">
+                    <h2>404 - Page Not Found</h2>
+                    <p>
+                      The page you’re looking for doesn’t exist. <a href="/">Go back to Home</a>
+                    </p>
+                  </div>
+                }
+              />
+            </Routes>
+          </Suspense>
+          <Footer />
         </div>
       </Router>
     </AuthContext.Provider>
