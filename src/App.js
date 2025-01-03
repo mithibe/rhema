@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 import Header from './components/Header';
@@ -25,7 +25,7 @@ const ProtectedRoute = ({ children }) => {
   const { user, loading } = React.useContext(AuthContext);
 
   if (loading) {
-    return <div className="loader">Loading...</div>; // Styled loader
+    return <div className="loader">Loading...</div>;
   }
 
   if (!user) {
@@ -33,6 +33,73 @@ const ProtectedRoute = ({ children }) => {
   }
 
   return children;
+};
+
+// AppContent component to handle location-based rendering
+const AppContent = () => {
+  const location = useLocation();
+  const showHeader = location.pathname === '/';
+
+  return (
+    <div className="App">
+      {showHeader && <Header />}
+      <Suspense fallback={<div className="loader">Loading...</div>}>
+        <Routes>
+          {/* Main page route */}
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <Main />
+                <VideoSection />
+                <TestimoniesSection />
+              </>
+            }
+          />
+
+          {/* About Us Route */}
+          <Route path="/about-us" element={<MentorsSection />} />
+
+          {/* Prophetic Teachings Route */}
+          <Route path="/prophetic-teachings" element={<Teachings />} />
+
+          {/* Donations Route */}
+          <Route path="/donations" element={<Donations />} />
+
+          {/* Suitable Helpers Route */}
+          <Route path="/suitable-helpers" element={<VisionaryMen2 />} />
+
+          {/* Visionary Men Route */}
+          <Route path="/visionary-men" element={<VisionaryMen />} />
+
+          {/* Video Player Route (Protected) */}
+          <Route
+            path="/video-player"
+            element={
+              <ProtectedRoute>
+                <VideoPlayer />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* 404 Route */}
+          <Route
+            path="*"
+            element={
+              <div className="not-found">
+                <h2>404 - Page Not Found</h2>
+                <p>
+                  The page you're looking for doesn't exist. <a href="/">Go back to Home</a>
+                </p>
+              </div>
+            }
+          />
+        </Routes>
+      </Suspense>
+      <Footer />
+    </div>
+  );
 };
 
 function App() {
@@ -51,64 +118,7 @@ function App() {
   return (
     <AuthContext.Provider value={{ user, setUser, loading }}>
       <Router>
-        <div className="App">
-          <Header />
-          <Suspense fallback={<div className="loader">Loading...</div>}>
-            <Routes>
-              {/* Main page route */}
-              <Route
-                exact
-                path="/"
-                element={
-                  <>
-                    <Main />
-                    <VideoSection />
-                    <TestimoniesSection />
-                  </>
-                }
-              />
-
-              {/* About Us Route */}
-              <Route path="/about-us" element={<MentorsSection />} />
-
-              {/* Prophetic Teachings Route */}
-              <Route path="/prophetic-teachings" element={<Teachings />} />
-
-              {/* Donations Route */}
-              <Route path="/donations" element={<Donations />} />
-
-              {/* Suitable Helpers Route */}
-              <Route path="/suitable-helpers" element={<VisionaryMen2 />} />
-
-              {/* Visionary Men Route */}
-              <Route path="/visionary-men" element={<VisionaryMen />} />
-
-              {/* Video Player Route (Protected) */}
-              <Route
-                path="/video-player"
-                element={
-                  <ProtectedRoute>
-                    <VideoPlayer />
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* 404 Route */}
-              <Route
-                path="*"
-                element={
-                  <div className="not-found">
-                    <h2>404 - Page Not Found</h2>
-                    <p>
-                      The page you’re looking for doesn’t exist. <a href="/">Go back to Home</a>
-                    </p>
-                  </div>
-                }
-              />
-            </Routes>
-          </Suspense>
-          <Footer />
-        </div>
+        <AppContent />
       </Router>
     </AuthContext.Provider>
   );
