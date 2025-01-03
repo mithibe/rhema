@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import './Modal.css';
 import { auth, db } from '../firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { doc, getDoc, setDoc, collection, getDocs } from 'firebase/firestore';
+import { doc, setDoc, collection, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import MpesaPaymentsUI from './mpesapaymentui';
 import { AuthContext } from '../App';
@@ -87,7 +87,6 @@ const Modal = ({ closeModal }) => {
       const user = userCredential.user;
       setUser(user);
 
-      // Check payments
       const paymentsCollectionRef = collection(db, 'users', user.uid, 'payments');
       const paymentsSnapshot = await getDocs(paymentsCollectionRef);
 
@@ -107,7 +106,6 @@ const Modal = ({ closeModal }) => {
           setActiveScreen('mpesa');
         }
       } else {
-        // No payments found, show MPESA payment UI
         setActiveScreen('mpesa');
       }
 
@@ -123,8 +121,7 @@ const Modal = ({ closeModal }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <button className="close-modal" onClick={closeModal}>X</button>
-
+        <button className="close-button" onClick={closeModal}>X</button>
         {activeScreen === 'auth' ? (
           <>
             <div className="tabs">
