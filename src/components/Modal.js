@@ -106,9 +106,7 @@ const Modal = ({ closeModal }) => {
           closeModal();
           navigate('/video-player'); // Navigate to the VideoPlayer screen
         }, 1500);
-      } else {
-        setActiveScreen('mpesa');
-      }
+      } 
     } catch (error) {
       console.error("Login error:", error);
       setError(error.message);
