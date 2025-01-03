@@ -1,9 +1,8 @@
-// Modal.js
 import React, { useState, useContext } from 'react';
 import './Modal.css';
 import { auth, db } from '../firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc, collection, getDocs } from 'firebase/firestore';
+import { doc, setDoc, collection, getDocs, getDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import MpesaPaymentsUI from './mpesapaymentui';
 import { AuthContext } from '../App';
@@ -69,7 +68,6 @@ const Modal = ({ closeModal }) => {
       setLoading(false);
     }
   };
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
@@ -87,26 +85,21 @@ const Modal = ({ closeModal }) => {
       const user = userCredential.user;
       setUser(user);
   
-      const paymentsCollectionRef = collection(db, 'users', user.uid, 'payments');
-      const paymentsSnapshot = await getDocs(paymentsCollectionRef);
+      const userDoc = await getDoc(doc(db, 'users', user.uid));
+      const userData = userDoc.data();
   
-      let isPaid = false;
-      if (!paymentsSnapshot.empty) {
-        paymentsSnapshot.forEach((doc) => {
-          const paymentData = doc.data();
-          if (paymentData.paymentStatus === 'paid') {
-            isPaid = true;
-          }
-        });
-      }
-  
-      if (isPaid) {
+      if (userData.subscriptionStatus === 'paid') {
         setSuccessMessage('Payment verified! Redirecting to video player...');
         setTimeout(() => {
           closeModal();
-          navigate('/video-player'); // Navigate to the VideoPlayer screen
+          navigate('/video-player');
         }, 1500);
-      } 
+      } else {
+        setSuccessMessage('Please complete payment to access videos.');
+        setTimeout(() => {
+          setActiveScreen('mpesa');
+        }, 1500);
+      }
     } catch (error) {
       console.error("Login error:", error);
       setError(error.message);
@@ -114,8 +107,6 @@ const Modal = ({ closeModal }) => {
       setLoading(false);
     }
   };
-  
-
   return (
     <div className="modal-overlay">
       <div className="modal-content">
