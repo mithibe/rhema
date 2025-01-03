@@ -75,41 +75,40 @@ const Modal = ({ closeModal }) => {
     setError('');
     setSuccessMessage('');
     setLoading(true);
-
+  
     if (!validateEmail()) {
       setError('Please enter a valid email address');
       setLoading(false);
       return;
     }
-
+  
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       setUser(user);
-
+  
       const paymentsCollectionRef = collection(db, 'users', user.uid, 'payments');
       const paymentsSnapshot = await getDocs(paymentsCollectionRef);
-
+  
+      let isPaid = false;
       if (!paymentsSnapshot.empty) {
-        let isPaid = false;
         paymentsSnapshot.forEach((doc) => {
           const paymentData = doc.data();
           if (paymentData.paymentStatus === 'paid') {
             isPaid = true;
           }
         });
-
-        if (isPaid) {
+      }
+  
+      if (isPaid) {
+        setSuccessMessage('Payment verified! Redirecting to video player...');
+        setTimeout(() => {
           closeModal();
-          navigate('/video-player');
-        } else {
-          setActiveScreen('mpesa');
-        }
+          navigate('/video-player'); // Navigate to the VideoPlayer screen
+        }, 1500);
       } else {
         setActiveScreen('mpesa');
       }
-
-      setSuccessMessage('You have successfully logged in.');
     } catch (error) {
       console.error("Login error:", error);
       setError(error.message);
@@ -117,6 +116,7 @@ const Modal = ({ closeModal }) => {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="modal-overlay">
