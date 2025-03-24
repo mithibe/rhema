@@ -5,8 +5,8 @@ const paymentStatus = {}; // In-memory store for payment status
 
 // Create token for MPESA transactions
 const createToken = async (req, res, next) => {
-  const secret = "QqpA3DDtBjwMhxurzRF2nmPZinc5FcojssWMZvNAUFMqSIf60TOqEf8zh2UXsG4I";
-  const consumer = "Rb7FAMHH59y5bRGQKm6y62itoVMUHHxmDWCYdNOULvGeNPfy";
+  const secret = "Your Secret Key here";
+  const consumer = "Consumer key here";
   const auth = Buffer.from(`${consumer}:${secret}`).toString("base64");
 
   try {
